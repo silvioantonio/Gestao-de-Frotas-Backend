@@ -2,7 +2,6 @@ package com.silvio.gestaoDeFrotas.model;
 
 import javax.persistence.Id;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -17,16 +16,13 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 @Entity
 @Table(name = "condutor")
-public class Condutor implements Serializable {
+public class Condutor {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -46,6 +42,7 @@ public class Condutor implements Serializable {
 	@Embedded
 	private Cnh cnh;
 	
+	@JsonManagedReference
 	@OneToMany(mappedBy = "condutor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<OrdemDeTrafico> ordensDeTrafico;
 	

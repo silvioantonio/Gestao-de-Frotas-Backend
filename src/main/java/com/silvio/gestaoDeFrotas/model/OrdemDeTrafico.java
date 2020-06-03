@@ -1,6 +1,5 @@
 package com.silvio.gestaoDeFrotas.model;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -14,17 +13,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.silvio.gestaoDeFrotas.util.DateHandler;
 
 @Entity
 @Table(name = "ordem_de_trafico")
-public class OrdemDeTrafico implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class OrdemDeTrafico {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -40,10 +35,12 @@ public class OrdemDeTrafico implements Serializable {
 	// 1 retirar os getters de veiculo e condutor de dentro da ordem de trafego
 	// 2 anotar veiculo e condutor dentro de ordem de trafego com @JsonIgnore
 	// 3 manipular o setter dentro dos controllers
+	@JsonBackReference
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "veiculo_id")
 	private Veiculo veiculo;
 	
+	@JsonBackReference
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "condutor_id")
 	private Condutor condutor;
@@ -119,14 +116,14 @@ public class OrdemDeTrafico implements Serializable {
 	public void setDestino(String destino) {
 		this.destino = destino;
 	}
-
-	public Veiculo pegarVeiculo() {return veiculo;}
+	
+	public Veiculo getVeiculo() {return veiculo;}
 
 	public void setVeiculo(Veiculo veiculo) {
 		this.veiculo = veiculo;
 	}
-
-	public Condutor pegarCondutor() {return condutor;}
+	
+	public Condutor getCondutor() {return condutor;}
 
 	public void setCondutor(Condutor condutor) {
 		this.condutor = condutor;
