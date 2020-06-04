@@ -49,7 +49,7 @@ public abstract class AbstractRestController<ID, T> {
 		return t.get();		
 	}
 	
-	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<T> salvar (@Valid @RequestBody T t, HttpServletResponse response)  {
 		T t2 = this.getService().getRepository().save(t);
 		
