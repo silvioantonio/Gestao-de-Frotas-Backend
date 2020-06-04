@@ -1,5 +1,6 @@
 package com.silvio.gestaoDeFrotas.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -19,7 +20,13 @@ import com.silvio.gestaoDeFrotas.util.DateHandler;
 
 @Entity
 @Table(name = "ordem_de_trafico")
-public class OrdemDeTrafico {
+public class OrdemDeTrafico implements Serializable {
+
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
