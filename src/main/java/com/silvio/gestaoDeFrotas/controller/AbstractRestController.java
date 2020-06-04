@@ -43,9 +43,6 @@ public abstract class AbstractRestController<ID, T> {
 		} catch (IllegalArgumentException i) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,  "Codigo não pode ser nulo!");
 		}
-		if(t.isEmpty()) {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND,  "Codigo não existe");
-		}
 		return t.get();		
 	}
 	
