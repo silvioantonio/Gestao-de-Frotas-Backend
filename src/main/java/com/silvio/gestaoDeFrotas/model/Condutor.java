@@ -48,7 +48,7 @@ public class Condutor implements Serializable {
 	@Embedded
 	private Cnh cnh;
 	
-	@JsonManagedReference
+	@JsonManagedReference(value = "condutor-json")
 	@OneToMany(mappedBy = "condutor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<OrdemDeTrafico> ordensDeTrafico;
 	

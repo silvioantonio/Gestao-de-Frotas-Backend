@@ -42,12 +42,12 @@ public class OrdemDeTrafico implements Serializable {
 	// 1 retirar os getters de veiculo e condutor de dentro da ordem de trafego
 	// 2 anotar veiculo e condutor dentro de ordem de trafego com @JsonIgnore
 	// 3 manipular o setter dentro dos controllers
-	@JsonBackReference
+	@JsonBackReference(value = "veiculo-json")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "veiculo_id")
 	private Veiculo veiculo;
 	
-	@JsonBackReference
+	@JsonBackReference(value = "condutor-json")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "condutor_id")
 	private Condutor condutor;
