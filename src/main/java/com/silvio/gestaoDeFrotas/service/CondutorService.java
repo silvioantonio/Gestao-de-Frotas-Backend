@@ -26,8 +26,8 @@ public class CondutorService extends AbstractRestService<Condutor, Long> {
 	}
 	
 	public Condutor buscarPorMatricula(Integer matricula) {
-		Condutor condutor = this.condutorRepository.findByMatricula(matricula);
-		return condutor;
+		List<Condutor> condutores = this.condutorRepository.findByMatricula(matricula);
+		return condutores.get(0);
 	}
 	
 	public Condutor buscarPorCnh(Integer cnh) {

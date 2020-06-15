@@ -11,6 +11,6 @@ import com.silvio.gestaoDeFrotas.model.Condutor;
 public interface CondutorRepository extends JpaRepository<Condutor, Long>{
 	List<Condutor> findAllByNome(String nome);
 	Condutor findByCpf(String cpf);
-	Condutor findByMatricula(Integer matricula);
+	List<Condutor> findByMatricula(Integer matricula);
 	
 }
