@@ -11,7 +11,7 @@ import com.silvio.gestaoDeFrotas.model.Veiculo;
 
 @Repository
 public interface VeiculoRepository extends JpaRepository<Veiculo, Long>{
-	Veiculo findByPlaca(String placa);
+	List<Veiculo> findByPlaca(String placa);
 	List<Veiculo> findAllByKm(Integer km);
 	List<Veiculo> findAllByModelo(String modelo);
 	List<Veiculo> findAllByMarca(Marca marca);
