@@ -3,6 +3,7 @@ package com.silvio.gestaoDeFrotas.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -43,12 +44,12 @@ public class OrdemDeTrafico implements Serializable {
 	// 2 anotar veiculo e condutor dentro de ordem de trafego com @JsonIgnore
 	// 3 manipular o setter dentro dos controllers
 	@JsonBackReference(value = "veiculo-json")
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "veiculo_id")
 	private Veiculo veiculo;
 	
 	@JsonBackReference(value = "condutor-json")
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "condutor_id")
 	private Condutor condutor;
 	
