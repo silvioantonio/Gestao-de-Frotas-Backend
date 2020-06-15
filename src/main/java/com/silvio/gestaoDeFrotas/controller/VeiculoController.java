@@ -25,6 +25,11 @@ public class VeiculoController extends AbstractRestController<Long, Veiculo>{
 	@Autowired
 	private VeiculoService veiculoService;
 	
+	@GetMapping("/placa/{placa}")
+    public Veiculo buscarPlaca(@PathVariable String placa){
+        return this.veiculoService.buscaPorPlaca(placa);
+    }
+	
 	@GetMapping("/km/{km}")
 	public List<Veiculo> buscarPorKm(@PathVariable Integer km) {
 		return this.veiculoService.buscaPorKm(km);

@@ -19,6 +19,14 @@ public class VeiculoService extends AbstractRestService<Veiculo, Long> {
 	@Autowired
 	private VeiculoRepository veiculoRepository;
 	
+	public Veiculo buscaPorPlaca(String placa) {
+        Veiculo veiculo = veiculoRepository.findByPlaca(placa);
+        if(veiculo == null) {
+			throw new ResponseStatusException(HttpStatus.NO_CONTENT,  "Km colocado não esta vinculado aos veiculos salvos!");
+        }
+        return veiculo;
+    }
+	
 	public List<Veiculo> buscaPorKm(Integer km) {
 		List<Veiculo> veiculos = null;
 		veiculos = veiculoRepository.findAllByKm(km);
