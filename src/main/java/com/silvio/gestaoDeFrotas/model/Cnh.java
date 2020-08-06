@@ -1,5 +1,6 @@
 package com.silvio.gestaoDeFrotas.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -11,6 +12,7 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.silvio.gestaoDeFrotas.util.DateHandler;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Embeddable
@@ -22,8 +24,7 @@ public class Cnh{
 	private Integer numeroCNH;
 	
 	@NotNull
-	@JsonDeserialize(using = DateHandler.class)
-	private Date validade;
+	private LocalDate validade;
 		
 	@Enumerated(EnumType.STRING)
 	@Column(name = "categoria_cnh")
@@ -37,11 +38,11 @@ public class Cnh{
 		this.numeroCNH = numeroCNH;
 	}
 
-	public Date getValidade() {
+	public LocalDate getValidade() {
 		return validade;
 	}
 
-	public void setValidade(Date validade) {
+	public void setValidade(LocalDate validade) {
 		this.validade = validade;
 	}
 

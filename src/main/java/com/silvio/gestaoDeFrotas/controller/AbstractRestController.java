@@ -72,7 +72,7 @@ public abstract class AbstractRestController<ID, T> {
 	 * Retorna um Objeto ID, que sera retirado de um objeto generico passado por parametro na assinatura do metodo,
 	 * dessa forma é possivel passar qualquer model e retornar seu Id gerado apos salvar essa entidade no banco de dados.
 	 * É necessario que se faça um casting para {@link Long} nesse contexto.
-	 * @param Object - objeto generico 
+	 * @param obj - objeto generico
 	 * @return Object - id referente ao objeto passado por parametro
 	 * @author silvio
 	 * @exception IllegalArgumentException - Caso seja passado um objeto Nulo
