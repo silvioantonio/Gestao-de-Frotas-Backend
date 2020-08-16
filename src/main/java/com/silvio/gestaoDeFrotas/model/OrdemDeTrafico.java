@@ -20,7 +20,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.silvio.gestaoDeFrotas.util.DateHandler;
 
 @Entity
-@Table(name = "ordem_de_trafico")
+@Table(name = "ordem_de_trafego")
 public class OrdemDeTrafico implements Serializable {
 
 
