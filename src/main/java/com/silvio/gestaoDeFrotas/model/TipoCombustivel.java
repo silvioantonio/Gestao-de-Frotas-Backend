@@ -1,5 +1,7 @@
 package com.silvio.gestaoDeFrotas.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public enum TipoCombustivel {
-	DIESEL, GASOLINA, ALCOOL, FLEX
+	@JsonProperty("DIESEL")DIESEL, @JsonProperty("GASOLINA")GASOLINA, @JsonProperty("ALCOOL")ALCOOL, @JsonProperty("FLEX")FLEX
 }
