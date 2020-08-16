@@ -20,7 +20,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.silvio.gestaoDeFrotas.util.DateHandler;
 
 @Entity
-@Table(name = "ordem_de_trafego")
+@Table(name = "ordem_de_trafico")
 public class OrdemDeTrafico implements Serializable {
 
 
@@ -44,7 +44,7 @@ public class OrdemDeTrafico implements Serializable {
 	// 2 anotar veiculo e condutor dentro de ordem de trafego com @JsonIgnore
 	// 3 manipular o setter dentro dos controllers
 	@JsonBackReference(value = "veiculo-json")
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "veiculo_id")
 	private Veiculo veiculo;
 	

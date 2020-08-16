@@ -57,7 +57,7 @@ public class Veiculo implements Serializable {
 	private int anoFabricacao;
 	
 	@JsonManagedReference(value = "veiculo-json")
-	@OneToMany(mappedBy = "veiculo", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "veiculo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<OrdemDeTrafico> ordensDeTrafico;
 
 	@Enumerated(EnumType.STRING)
