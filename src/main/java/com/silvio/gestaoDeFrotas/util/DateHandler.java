@@ -22,12 +22,10 @@ public class DateHandler extends StdDeserializer<Date> {
 
 	@Override
 	public Date deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + p.getText());
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + p.getCurrentName());
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + p.readValueAsTree());
 		String date = p.getText();
 		try {
-			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+			System.out.println("date: "+sdf.format(date));
 			return sdf.parse(date);
 		} catch (Exception e) {
 			return null;
