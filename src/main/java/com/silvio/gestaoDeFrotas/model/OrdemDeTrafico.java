@@ -43,11 +43,11 @@ public class OrdemDeTrafico implements Serializable {
 	// 1 retirar os getters de veiculo e condutor de dentro da ordem de trafego
 	// 2 anotar veiculo e condutor dentro de ordem de trafego com @JsonIgnore
 	// 3 manipular o setter dentro dos controllers
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+	@ManyToOne
 	@JoinColumn(name = "veiculo_id")
 	private Veiculo veiculo;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+	@ManyToOne
 	@JoinColumn(name = "condutor_id")
 	private Condutor condutor;
 	
