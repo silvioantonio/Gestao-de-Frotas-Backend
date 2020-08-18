@@ -68,13 +68,13 @@ public class OrdemTrafegoController extends AbstractRestController<Long,OrdemDeT
 	
 	@PostMapping
 	public ResponseEntity<OrdemDeTrafico> salvar (@Valid @RequestBody OrdemDeTrafico ordem, HttpServletResponse response)  {
-		  Condutor c = (Condutor) condutorRepository.findByMatricula(ordem.getCondutor().getMatricula());
-		  ordem.setCondutor(c);
+		  List<Condutor> c = condutorRepository.findByMatricula(ordem.getCondutor().getMatricula());
+		  ordem.setCondutor(c.get(0));
 		  
-		  Veiculo v = (Veiculo) veiculoRepository.findByPlaca(ordem.getVeiculo().getPlaca());
-		  ordem.setVeiculo(v);
+		  List<Veiculo> v = veiculoRepository.findByPlaca(ordem.getVeiculo().getPlaca());
+		  ordem.setVeiculo(v.get(0));
 
-		  OrdemDeTrafico t2 = this.getService().getRepository().save(ordem);
+		  OrdemDeTrafico t2 = this.ordemTrafegoService.getRepository().save(ordem);
 		  return ResponseEntity.status(HttpStatus.CREATED).body(t2);
 		}
 	
