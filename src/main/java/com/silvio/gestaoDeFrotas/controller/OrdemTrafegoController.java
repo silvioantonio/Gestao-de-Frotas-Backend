@@ -65,7 +65,7 @@ public class OrdemTrafegoController extends AbstractRestController<Long,OrdemDeT
 	public List<OrdemDeTrafico> buscaPorDestino(@PathVariable String destino){
 		return this.ordemTrafegoService.buscaOndensPorDestino(destino);
 	}
-	
+	/*
 	@PostMapping
 	public ResponseEntity<OrdemDeTrafico> salvar (@Valid @RequestBody OrdemDeTrafico ordem, HttpServletResponse response)  {
 		  List<Condutor> c = condutorRepository.findByMatricula(ordem.getCondutor().getMatricula());
@@ -77,7 +77,7 @@ public class OrdemTrafegoController extends AbstractRestController<Long,OrdemDeT
 		  OrdemDeTrafico t2 = this.ordemTrafegoService.getRepository().save(ordem);
 		  return ResponseEntity.status(HttpStatus.CREATED).body(t2);
 		}
-	
+	*/
 	@Override
 	public AbstractRestService<OrdemDeTrafico, Long> getService() {
 		return this.ordemTrafegoService;
