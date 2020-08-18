@@ -20,6 +20,7 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -56,6 +57,7 @@ public class Veiculo implements Serializable {
 	@Column(name = "ano_fabricacao")
 	private int anoFabricacao;
 	
+	@JsonBackReference(value = "veiculo_j")
 	@OneToMany(mappedBy = "veiculo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<OrdemDeTrafico> ordensDeTrafico;
 

@@ -17,6 +17,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
@@ -48,6 +49,7 @@ public class Condutor implements Serializable {
 	@Embedded
 	private Cnh cnh;
 	
+	@JsonBackReference(value = "condutor_j")
 	@OneToMany(mappedBy = "condutor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<OrdemDeTrafico> ordensDeTrafico;
 	

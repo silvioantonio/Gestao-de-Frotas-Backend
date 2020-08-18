@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.silvio.gestaoDeFrotas.util.DateHandler;
 
@@ -44,10 +45,12 @@ public class OrdemDeTrafico implements Serializable {
 	// 2 anotar veiculo e condutor dentro de ordem de trafego com @JsonIgnore
 	// 3 manipular o setter dentro dos controllers
 	@ManyToOne
+	@JsonManagedReference(value = "veiculo_j")
 	@JoinColumn(name = "veiculo_id")
 	private Veiculo veiculo;
 	
 	@ManyToOne
+	@JsonManagedReference(value = "condutor_j")
 	@JoinColumn(name = "condutor_id")
 	private Condutor condutor;
 	
